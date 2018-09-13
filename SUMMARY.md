@@ -1,1 +1,1 @@
-* [空白目录](default.md)
+* [JavaScript]]](JavaScript.md)
