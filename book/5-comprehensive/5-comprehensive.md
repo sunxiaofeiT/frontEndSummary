@@ -1,3 +1,5 @@
+# 综合知识
+
 ## 一、缓存相关问题
 
 ### 1、相关概念
@@ -110,14 +112,18 @@ CSS会阻塞之后的JS的运行。
 
 ### 7、跨域问题场景【细看】
 
-相关网站
-DOM同源策略
-禁止对不同源页面DOM进行操作
-同源指，域名、协议、端口
+#### DOM同源策略
+
+禁止对不同源页面DOM进行操作, 同源指，域名、协议、端口
 如果非同源，js脚本执行时浏览器会报错，提示拒绝访问。（可以下载，但是不可以有数据操作）
-跨域问题解决
-jsonp
+
+#### 跨域问题解决
+
+- [jsonp](../3-javascript/3.1-jquery.md#一、jsonp)
+
 原理：通过动态创建script标签,然后利用src属性进行跨域，设置一个回调函数。
+
+```javascript
 // 定义一个fun函数
 function fun(fata) {
     console.log(data);
@@ -128,11 +134,14 @@ var script = document.gerElement('script');
 script.type = 'text/javasctipt';
 script.src = 'demo.js?callback=fun';
 body.appendChild(script);
-jsonp不能发post请求，只能发get请求。因为它是调用回调函数的方式，在服务器看来只是请求了一个资源。
+```
+
+> jsonp不能发post请求，只能发get请求。因为它是调用回调函数的方式，在服务器看来只是请求了一个资源。
 
 ### 8、重绘 && 重排
 
 一个页面由两部分组成：
+
 - DOM：描述该页面的结构
 - render：描述 DOM 节点 (nodes) 在页面上如何呈现
 
