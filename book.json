@@ -1,5 +1,9 @@
 {
     "plugins": [
         "highlight"
-    ]
+    ],
+    "style": {
+        "website": "./style/website.css"
+    }
+    
 }

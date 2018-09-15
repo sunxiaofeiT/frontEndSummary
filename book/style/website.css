@@ -1,0 +1,11 @@
+.h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: blue;
+    line-height: 40px;
+}
+.h1::before {
+    content: " ";
+    color: blue;
+    width: 5px; 
+}
