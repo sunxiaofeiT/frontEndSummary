@@ -17,4 +17,9 @@
     * [6.1 TCP/IP](./book/6-additional/6.1-tcpip.md)
     * [6.2 数据结构](./book/6-additional/6.2-数据结构.md)
     * [6.3 前端开发](./book/6-additional/6.3-前端开发.md)
-
+* [7. 相关工具](./book/7-tool/)
+    * [7.1 GIT](./book/7-tool/7.1-git.md)
+    * [7.2 Linux](./book/7-tool/7.2-linux.md)
+* [8. 其他需要了解的内容](./book/8-other)
+    * [8.1 Python3](.book/8-other/8.1-python3.md)
+    * [8.2 Java](./book/8-other/8.2-java.md)
