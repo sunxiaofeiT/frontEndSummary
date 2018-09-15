@@ -1,6 +1,8 @@
 # 前端面试总结 - CSS
 
-## 一、CSS选择器
+## 一、相关概念
+
+### 1、CSS选择器
 
 - 通配符选择器（*）
 - 类选择器
@@ -17,13 +19,7 @@
 
 ## 二、CSS属性
 
-### 1. transform
-
-旋转：transform：rotate(7deg);
-
-> css中的相关度数：① deg：度数，总共360度; ② grad：梯度，一个圆400梯度； ③ rad：弧度，Π； ④ turn：圈，几圈。
-
-### 3. Position
+### 1. Position
 
 - static: 
     默认值，没有定位，元素出现在正常流中，（忽略top、bottom、left、right、z-index）
@@ -34,30 +30,96 @@
 - fixed：
     生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过"left","top","right"以及"bottom"属性进行规定。可通过z-index进行层次分级。
 
-### 4. border style
+### 2. border style
 
 |dotted |solid |double |dashed|
 |-------|------|-------|------| 
 |点状   |实线   |双线   |虚线   |
 
-### 5. background-attachment
+### 3. background-attachment
+
+> TODO
 
 滚动视觉差.
 
 可以实现页面背景图固定的效果。
 
+## 三、CSS三大机制
+
+### 1、特殊性
+
+`特殊性`：一个元素可以被多少个规则设置，但是最终只有一个规则会起作用，那么该规则的特殊性最高，特殊性即CSS优先级。
+
+### 2、继承
+
+`CSS继承`：是从一个元素向其后代元素传递属性值所采用的机制。
+
+- 继承是从父元素到子元素
+- 所有关于文字图片大小样式的属性可以继承( 例如：letter-spacing、word-spacing、white-space、line-height、color、font
+
+##### 无继承性的属性
+
+1. display：规定元素应该生成的框的类型
+2. 文本属性：
+
+|属性           |含义                   |
+|---------------|----------------------|
+|vertical-align |垂直文本对齐           |
+|text-decoration|规定添加到文本的装饰    |
+|text-shadow    |文本阴影效果           |
+|white-space    |空白符的处理           |
+|unicode-bidi   |设置文本的方向         |
+
+3. 盒子模型的属性：width、height、margin及margin相关、border及boder相关、padding及padding相关
+4. 背景属性：background（background-color、background-image、background-repeat、background-position、background-attachment）
+5. 定位属性：float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index
+6. 生成内容属性：content、counter-reset、counter-increment
+7. 轮廓样式属性：outline-style、outline-width、outline-color、outline
+8. 页面样式属性：size、page-break-before、page-break-after
+9. 声音样式属性：pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
+
+#### 有继承性的属性
+
+1. 字体系列属性：font及font相关、
+2. 文本系列属性：text-indent：文本缩进、text-align、line-height、word-spacing：即字间隔、letter-spacing：字符间距、text-transform：控制文本大小写、direction：规定文本的书写方向、color
+3. 元素可见性：visibility
+4. 表格布局属性：caption-side、border-collapse、border-spacing、empty-cells、table-layout
+5. 列表布局属性：list-style-type、list-style-image、list-style-position、list-style
+6. 生成内容属性：quotes
+7. 光标属性：cursor
+8. 页面样式属性：page、page-break-inside、windows、orphans
+9. 声音样式属性：speak、speak-punctuation、speak-numeral、speak-header、speech-rate、volume、voice-family、pitch、pitch-range、stress、richness、、azimuth、elevation
+
+#### 所有元素可以继承的属性
+
+1. 元素可见性：visibility
+2. 光标属性：cursor
+
+#### 内联元素可以继承的属性
+
+1. 字体系列属性
+2. 除text-indent、text-align之外的文本系列属性
+
+#### 块级元素可以继承的属性
+
+1. text-indent、text-align
+
+### 3、层叠
+
+`层叠`：确定应当向一个元素应用哪些值时，浏览器不仅要考虑继承，还要考虑声明的特殊性，另外需要考虑声明本身的来源。这个过程就称为层叠。
+
+- 规则的权重（!important），加了权重的优先级最高
+- 当权重相同的时候，会比较规则的特殊性，根据前面的优先级计算规则决定哪条规则起作用
+- 当特殊性值也一样的时候，css规则会按顺序排序，后声明的规则优先级高，
+
+> 后声明的规则优先级高
+
 ## 三、css优先级
 
 ### 1、相关概念
 
-#### CSS继承
-
-`CSS继承` 是从一个元素向其后代元素传递属性值所采用的机制。
-确定应当向一个元素应用哪些值时，浏览器不仅要考虑继承，还要考虑声明的特殊性，另外需要考虑声明本身的来源。这个过程就称为层叠。
-
-> 声明：CSS选择器后边大括号里的样式叫做声明。  
-> 声明块： CSS选择器整个大括号叫做声明块。  
-> 特殊性：一个元素可以被多少个规则设置，但是最终只有一个规则会起作用，那么该规则的特殊性最高，特殊性即CSS优先级。
+`声明`：CSS选择器后边大括号里的样式叫做声明。  
+`声明块`： CSS选择器整个大括号叫做声明块。  
 
 ### 2、优先级的计算
 
@@ -65,19 +127,12 @@
 
 |选择器                     |影响       |
 |--------------------------|-----------|
-|ID选择器的特殊性值         |加0,1,0,0  |
-|类选择器、属性选择器或伪类  |加0,0,1,0  |
-|元素和伪元素               |加0,0,0,1  |
 |通配选择器*对特殊性没有贡献 |即0,0,0,0  |
+|元素和伪元素               |加0,0,0,1  |
+|类选择器、属性选择器或伪类  |加0,0,1,0  |
+|ID选择器的特殊性值         |加0,1,0,0  |
 |!important（权重）         |它没有特殊性值，但它的优先级是最高的，可以认为1,0,0,0,0|
-
-### 3、浏览器比较不同规则的顺序
-
-- 规则的权重（!important），加了权重的优先级最高
-- 当权重相同的时候，会比较规则的特殊性，根据前面的优先级计算规则决定哪条规则起作用
-- 当特殊性值也一样的时候，css规则会按顺序排序，后声明的规则优先级高，
-
-> 后声明的规则优先级高
+|继承的属性                 |没有特殊值,0,0,0,0 |
 
 ## 四、CSS实例
 
@@ -106,5 +161,6 @@
     - 外层 div, display: inline-block => 设置 line-height 和 height 相同的时候，vertical-align 作用才会显现出。
 
 - 外层 div设置为 relative，内层div 设置为 left:50%, top:50%, absolute，transform：translate(-50%, -50%), 或者使用 transform: translate3d(-50%, -50%, 0) 一样道理。
-- 外层 div，display: -webkit-box; -webkit-box-algin: center; -webkit-bok-pack: center;（外层 div 里可以是文字，也可以是div）
+
+- 外层 div，display: -webkit-box; -webkit-box-algin: center; -webkit-bok-pack: center;（外层 div 的内容可以是文字，也可以是div）
     > -webkit-box-glign 只有 chrome,oprate 支持)

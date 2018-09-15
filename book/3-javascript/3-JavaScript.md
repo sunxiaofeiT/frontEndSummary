@@ -123,7 +123,7 @@ Typeof 把参数的类型信息作为字符串返回。
 
 - `setTimeout(.... , time)` 在指定的时间（time） 后调用函数或者计算表达式。
 
-- `setInterval(code,millisec,lang)`, lang不是必需。会在指定的周期（millisec）不断调用函数（code），直到 clearInterval() 清除。
+- `setInterval(code,millisec,lang)`, lang传递给执行函数的其他参数。会在指定的周期（millisec）不断调用函数（code），直到 clearInterval() 清除。
 
 ## 三、综合
 
@@ -152,9 +152,36 @@ Js具有自动回收垃圾的机制，垃圾收集器会按照固定的时间间
 
 1. 使用 Object.keys(objectName).forEach(function(element,index){ .... } 便利
 
-2. Object.getOwnPropertyNames(), 返回一个数组，包含自身的所有属性（不包含symbol属性，但是包含不可枚举属性）。
+2. for( var i in object ) {...}
 
-3. Reflect.ownKeys(obj) ，包含所有属性，包含symbol属性和不可枚举属性 
+3. Object.getOwnPropertyNames(), 返回一个数组，包含自身的所有属性（不包含symbol属性，但是包含不可枚举属性）。
+
+4. Reflect.ownKeys(obj) ，包含所有属性，包含symbol属性和不可枚举属性 
+
+```javascript 
+var obj = {
+  a: 'aaaaa',
+  b: 'bbbbb',
+  c: 'ccccc',
+}
+
+for ( var  i in obj ) {
+  console.log(i, obj[i]);
+}
+//输出结果
+//a aaaaa
+//b bbbbb
+//c ccccc
+
+Object.keys(obj).forEach(
+  function(ele,index) { 
+    console.log(ele,obj[ele],index)
+  })
+//输出结果
+a dfafda 0
+b afdaf 1
+c ssssss 2
+```
 
 ### 4、cookies && storage
 
